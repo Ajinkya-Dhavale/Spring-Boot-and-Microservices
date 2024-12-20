@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h1>User Form</h1>
+	<p th:text="${message}" ></p>
+	<div th:if="${errorMessage}">
+	        <p th:text="${errorMessage}" style="color: red;"></p>
+	    </div>
+	<form th:action="@{/submitForm}" th:object="${user}" method="post">
+        <div class="form-group mt-4">
+            <label for="name">Name:</label>
+            <div th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}" class="text-danger"></div>
+            <input type="text" id="name" th:field="*{userName}" class="form-control"/>
+        </div>
+		<div class="form-group mt-4">
+            <label for="email">Email:</label>
+            <div th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userEmail}" class="text-danger"></div>
+            <input type="email" id="email" th:field="*{userEmail}" class="form-control"/>
+        </div>
+        <div class="form-group mt-4">
+            <label for="phone">Phone Number:</label>
+            <div th:if="${#fields.hasErrors('userPhone')}" th:errors="*{userPhone}" class="text-danger"></div>
+            <input type="text" id="phone" th:field="*{userPhone}" class="form-control"/>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+	</form>
+</div>
+</body>
