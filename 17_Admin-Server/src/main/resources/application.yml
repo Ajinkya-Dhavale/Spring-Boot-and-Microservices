@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: 17_Admin-Server
+
+server:
+  port: 9090
