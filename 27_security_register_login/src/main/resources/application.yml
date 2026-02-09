@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: 27_security_register_login
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password:
+    url: jdbc:mysql://localhost:3306/spring
+    username: root
+  jpa:
+    show-sql: true
+
+    hibernate:
+      ddl-auto: update
